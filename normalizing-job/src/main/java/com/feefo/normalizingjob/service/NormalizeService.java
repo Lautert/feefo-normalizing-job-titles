@@ -16,7 +16,7 @@ public class NormalizeService
     )
         throws MessageUserException {
 
-        if (search.length() == 0)
+        if (search.trim().length() == 0)
         {
             throw new MessageUserException(
                 "The search parameter is required",
