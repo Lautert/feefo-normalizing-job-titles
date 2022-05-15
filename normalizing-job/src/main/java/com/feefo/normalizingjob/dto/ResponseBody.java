@@ -8,12 +8,12 @@ public class ResponseBody<T>
 {
 
     @ApiModelProperty(
-        value = "Se a operação foi realizada com sucesso, os dados serão informados por este atributo"
+        value = "If the operation was successful, the data will be informed by this attribute"
     )
     private T data;
 
     @ApiModelProperty(
-        value = "Caso a requisição não retornar como esperado, retornaremos o motivo por este campo"
+        value = "If the operation was not successful, the reason will be informed by this attribute"
     )
     private String message;
 
