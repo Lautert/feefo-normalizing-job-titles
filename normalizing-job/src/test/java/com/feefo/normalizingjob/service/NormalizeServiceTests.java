@@ -83,6 +83,36 @@ public class NormalizeServiceTests
     }
 
     @Test
+    public void returnEmptyGivenBigWord () {
+
+        String search = "Incomprehensibility";
+        String expected = "";
+        String actual = new NormalizeService().normalize(search);
+
+        assertEquals(
+            expected,
+            actual
+        );
+    }
+
+    @Test
+    public void returnExceptionGivenSpaceString () {
+        Exception exception = assertThrows(
+            MessageUserException.class,
+            () -> {
+                String search = "   ";
+                String expected = "";
+                String actual = new NormalizeService().normalize(search);
+            }
+        );
+
+        String expectedMessage = "The search parameter is required";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
     public void returnExceptionGivenEmpty () {
         Exception exception = assertThrows(
             MessageUserException.class,
