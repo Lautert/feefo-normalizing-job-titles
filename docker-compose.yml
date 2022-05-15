@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+
+  app:
+    image: 'docker-spring-boot:latest'
+    build:
+      context: ./normalizing-job
+    container_name: app
+    environment:
+      - SWAGGER_ENABLED=true
+    ports:
+      - "9007:8081"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
